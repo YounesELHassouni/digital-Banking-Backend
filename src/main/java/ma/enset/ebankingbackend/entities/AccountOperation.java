@@ -1,11 +1,12 @@
 package ma.enset.ebankingbackend.entities;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.enset.ebankingbackend.enums.OperationType;
 
-import javax.persistence.*;
+
 import java.util.Date;
 
 @Entity
@@ -19,4 +20,5 @@ public class AccountOperation {
     private OperationType type;
     @ManyToOne
     private BankAccount bankAccount;
+    private String description;
 }

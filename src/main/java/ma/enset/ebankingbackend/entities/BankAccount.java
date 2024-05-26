@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.enset.ebankingbackend.enums.AccountStatus;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +22,6 @@ public class BankAccount {
     private AccountStatus status;
     @ManyToOne
     private Customer customer;
-    @OneToMany(mappedBy = "bankAccount")
-    private List<AccountOperation> accountOperations;
+    @OneToMany(mappedBy = "bankAccount",fetch = FetchType.LAZY)
+    private List<AccountOperation> Operations;
 }
